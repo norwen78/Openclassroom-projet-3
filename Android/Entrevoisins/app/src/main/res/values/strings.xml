@@ -3,4 +3,17 @@
     <string name="tab_neighbour_title">My neighbours</string>
     <string name="tab_favorites_title">Favorites</string>
     <string name="activity_new_neighbour">New neighbour</string>
+    <string name="caroline">Caroline</string>
+    <string name="photo_voisin">Photo Voisin</string>
+    <string name="saint_pierre_du_mont_5km">Saint pierre du mont à 5km</string>
+    <string name="_33_6_86_57_90_14">+33 6 86 57 90 14</string>
+    <string name="www_facebook_fr_caroline">www.facebook.fr/caroline</string>
+    <string name="a_propos_de_moi">A propos de moi</string>
+    <string name="bonjour_je_souhaiterais_faire_de_la_marche_nordique_pas_initi_e_je_recherche_une_ou_plusieurs_personnes_susceptible_de_m_accompagner_j_aime_les_jeux_de_cartes_tels_la_belote_ou_le_tarot">Bonjour ! Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptible de m\'accompagner ! J\'aime les jeux de cartes tels la belote ou le tarot.</string>
+    <string name="bonjour_je_souhaiterais_faire_de_la_marche_nordique_pas_initi_e_je_recherche_une_ou_plusieurs_personnes_susceptibles_de_m_accompagner_j_aime_les_jeux_de_cartes_tels_la_belote_et_le_tarot">Bonjour je souhaiterais faire de la marche nordique.Pas initiée je recherche une ou plusieurs personnes susceptibles de m\'accompagner j\'aime les jeux de cartes tels la belote et le tarot..</string>
+    <string name="icone_location">Icone location</string>
+    <string name="icone_telephone">Icone Telephone</string>
+    <string name="icone_contact">Icone Contact</string>
+    <string name="fleche_retour">Fleche retour</string>
+    <string name="bouton_favoris">Bouton Favoris</string>
 </resources>

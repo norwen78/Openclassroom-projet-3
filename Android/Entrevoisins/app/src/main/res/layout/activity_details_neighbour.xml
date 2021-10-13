@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBEFF0">
+
+
+    <ImageView
+        android:id="@+id/neighbourPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:contentDescription="@string/photo_voisin"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
+        android:src="@drawable/caroline" />
+
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/fleche_retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        tools:ignore="ImageContrastCheck" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:contentDescription="@string/bouton_favoris"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_star_border_24"
+        app:backgroundTint="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/neighbourPhoto"
+        tools:ignore="ImageContrastCheck" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardInfo"
+        android:layout_width="381dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/neighbourPhoto">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/neighbourName"
+                android:layout_width="363dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="9dp"
+                android:text="@string/caroline"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/view_separator"
+                android:layout_width="match_parent"
+                android:layout_below="@id/neighbourName"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#D8d9db" />
+
+            <TextView
+                android:id="@+id/neighbourAdress"
+                android:layout_below="@id/view_separator"
+                android:layout_width="341dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/saint_pierre_du_mont_5km"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iconAdress"
+                android:layout_width="35dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/view_separator"
+                android:layout_marginTop="23dp"
+                android:contentDescription="@string/icone_location"
+                app:srcCompat="@drawable/ic_baseline_location_on_24"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/neighbourPhone"
+                android:layout_below="@id/neighbourAdress"
+                android:layout_width="341dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/_33_6_86_57_90_14"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iconPhone"
+                android:layout_width="35dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/iconAdress"
+                android:layout_marginTop="27dp"
+                android:contentDescription="@string/icone_telephone"
+                app:srcCompat="@drawable/ic_baseline_local_phone_24"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/neighbourContact"
+                android:layout_below="@id/neighbourPhone"
+                android:layout_width="341dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/www_facebook_fr_caroline"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iconContact"
+                android:layout_width="35dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/iconPhone"
+                android:layout_marginTop="28dp"
+                android:contentDescription="@string/icone_contact"
+                app:srcCompat="@drawable/ic_baseline_language_24"
+                tools:ignore="ImageContrastCheck" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardAbout"
+        android:layout_width="381dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardInfo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/neighbourAboutme"
+                android:layout_width="361dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/a_propos_de_moi"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view_separator2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#D8d9db" />
+
+            <TextView
+                android:id="@+id/neighbourAboutme2"
+                android:layout_width="361dp"
+                android:layout_height="123dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot.."
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/neighbourNameover"
+        android:layout_width="169dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/caroline"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="@+id/neighbourPhoto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
