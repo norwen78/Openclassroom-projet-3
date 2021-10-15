@@ -28,6 +28,12 @@ public interface NeighbourApiService {
      */
     void createNeighbour(Neighbour neighbour);
 
+    List<Neighbour> getFavoriteNeighbour();
+
     Neighbour getNeighboursById(long neighbourId);
+
+    void changeStatus(long neighbourID);
+
+
 
 }

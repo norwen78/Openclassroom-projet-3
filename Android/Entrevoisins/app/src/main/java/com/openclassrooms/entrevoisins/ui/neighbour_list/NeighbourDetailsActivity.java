@@ -47,6 +47,7 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         neighbour = mApiService.getNeighboursById(neighbourId);
         initView();
+        initListener();
         buttonBack.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -54,7 +55,16 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
           }
         });
     }
-
+    private void initListener() {
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mApiService.changeStatus(neighbour.getId());
+                neighbour = mApiService.getNeighboursById(neighbourId);
+                initView();
+            }
+        });
+    }
     private void initView() {
         mNamePhoto.setText(neighbour.getName());
         mNameCard1.setText(neighbour.getName());
@@ -62,7 +72,15 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
                 .load(neighbour.getAvatarUrl())
                 .into(mImageAvatar);
         mContact.setText("www.facebook.fr/" + neighbour.getName());
+        initStarView();
+    }
 
+    private void initStarView() {
+        if (neighbour.isFavorite()){
+            fav.setImageResource(R.drawable.ic_baseline_star_full_24);
+        } else {
+            fav.setImageResource(R.drawable.ic_baseline_star_border_24);
+        }
     }
 
 }

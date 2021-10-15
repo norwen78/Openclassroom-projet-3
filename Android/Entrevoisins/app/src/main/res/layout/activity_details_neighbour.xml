@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="16dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/neighbourPhoto">
@@ -86,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/saint_pierre_du_mont_5km"
                 android:textSize="16sp" />
 
@@ -195,11 +195,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/caroline"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="@+id/neighbourPhoto"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/neighbourPhoto"
+        app:layout_constraintStart_toStartOf="@+id/neighbourPhoto" />
 
 </android.support.constraint.ConstraintLayout>
