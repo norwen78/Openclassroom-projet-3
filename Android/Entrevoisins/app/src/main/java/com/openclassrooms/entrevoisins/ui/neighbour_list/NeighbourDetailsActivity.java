@@ -3,7 +3,6 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,10 +20,6 @@ import butterknife.ButterKnife;
 public class NeighbourDetailsActivity extends AppCompatActivity {
 
     public static final String EXTRA_NEIGHBOUR_ID = "EXTRA_NEIGHBOUR_INDEX";
-    private Neighbour neighbour;
-    private NeighbourApiService mApiService;
-    private ImageButton buttonBack;
-
     @BindView(R.id.neighbourPhoto)
     ImageView mImageAvatar;
     @BindView(R.id.neighbourNameover)
@@ -34,7 +29,11 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
     @BindView(R.id.neighbourContact)
     TextView mContact;
     @BindView(R.id.fav)
-    FloatingActionButton fav;
+    FloatingActionButton favorite;
+    private Neighbour mNeighbour;
+    private Neighbour neighbour;
+    private NeighbourApiService mApiService;
+    private ImageButton buttonBack;
     private long neighbourId;
 
     @Override
@@ -47,24 +46,10 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         neighbour = mApiService.getNeighboursById(neighbourId);
         initView();
-        initListener();
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              finish();
-          }
-        });
+        initClick();
+        checkFavorite();
     }
-    private void initListener() {
-        fav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mApiService.changeStatus(neighbour.getId());
-                neighbour = mApiService.getNeighboursById(neighbourId);
-                initView();
-            }
-        });
-    }
+
     private void initView() {
         mNamePhoto.setText(neighbour.getName());
         mNameCard1.setText(neighbour.getName());
@@ -72,14 +57,36 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
                 .load(neighbour.getAvatarUrl())
                 .into(mImageAvatar);
         mContact.setText("www.facebook.fr/" + neighbour.getName());
-        initStarView();
     }
 
-    private void initStarView() {
-        if (neighbour.isFavorite()){
-            fav.setImageResource(R.drawable.ic_baseline_star_full_24);
+    private void initClick() {
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        favorite.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!neighbour.getFavorite()) {
+                    favorite.setImageResource(R.drawable.ic_baseline_star_full_24);
+                    mApiService.addFavorite(neighbour);
+                    neighbour.setFavorite(true);
+                } else {
+                    favorite.setImageResource(R.drawable.ic_baseline_star_border_24);
+                    mApiService.removeFavorite(neighbour);
+                    neighbour.setFavorite(false);
+                }
+            }
+        }));
+    }
+
+    private void checkFavorite() {
+        if (!neighbour.getFavorite()) {
+            favorite.setImageResource(R.drawable.ic_baseline_star_border_24);
         } else {
-            fav.setImageResource(R.drawable.ic_baseline_star_border_24);
+            favorite.setImageResource(R.drawable.ic_baseline_star_full_24);
         }
     }
 

@@ -13,12 +13,12 @@
         android:layout_height="220dp"
         android:contentDescription="@string/photo_voisin"
         android:scaleType="centerCrop"
+        android:src="@drawable/caroline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck"
-        android:src="@drawable/caroline" />
+        tools:ignore="ImageContrastCheck" />
 
     <ImageButton
         android:id="@+id/buttonBack"
@@ -41,16 +41,16 @@
         android:focusable="true"
         android:src="@drawable/ic_baseline_star_border_24"
         app:backgroundTint="#fff"
+        app:layout_constraintBottom_toTopOf="@id/cardInfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/neighbourPhoto"
-        app:layout_constraintBottom_toTopOf="@id/cardInfo"
         tools:ignore="ImageContrastCheck" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardInfo"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,16 +75,16 @@
             <View
                 android:id="@+id/view_separator"
                 android:layout_width="match_parent"
-                android:layout_below="@id/neighbourName"
                 android:layout_height="1dp"
+                android:layout_below="@id/neighbourName"
                 android:layout_marginTop="8dp"
                 android:background="#D8d9db" />
 
             <TextView
                 android:id="@+id/neighbourAdress"
-                android:layout_below="@id/view_separator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/view_separator"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/saint_pierre_du_mont_5km"
@@ -102,9 +102,9 @@
 
             <TextView
                 android:id="@+id/neighbourPhone"
-                android:layout_below="@id/neighbourAdress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/neighbourAdress"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/_33_6_86_57_90_14"
@@ -122,9 +122,9 @@
 
             <TextView
                 android:id="@+id/neighbourContact"
-                android:layout_below="@id/neighbourPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/neighbourPhone"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="16dp"
@@ -180,9 +180,9 @@
                 android:id="@+id/neighbourAboutme2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
                 android:text="Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot.."
                 android:textSize="16sp"
                 tools:ignore="HardcodedText" />
