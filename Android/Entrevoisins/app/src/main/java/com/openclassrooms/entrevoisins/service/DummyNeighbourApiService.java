@@ -12,7 +12,7 @@ public class DummyNeighbourApiService implements NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
 
-    private List<Neighbour> favoriteNeighbour = createFavoriteList();
+    public List<Neighbour> favoriteNeighbour = createFavoriteList();
 
 
     /**
