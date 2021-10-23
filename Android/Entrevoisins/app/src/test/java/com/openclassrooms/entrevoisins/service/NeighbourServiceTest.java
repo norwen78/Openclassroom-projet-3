@@ -36,7 +36,7 @@ public class NeighbourServiceTest {
     public void getNeighboursWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
         List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
-        assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
+        assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray())); // Tu peux même faire un assertEquals ici, comme ça tu vérifies l'ordre et les données
     }
 
     @Test
@@ -48,7 +48,7 @@ public class NeighbourServiceTest {
 
     @Test
     public void createNeighbourWithSuccess(){
-        Neighbour neighbourToCreate = service.getNeighbours().get(0);
+        Neighbour neighbourToCreate = service.getNeighbours().get(0); // Pas bon là : crée un neighbour par toi même dans ton GIVEN et vérifie qu'il est bien là dans ton THEN
         service.createNeighbour(neighbourToCreate);
         assertTrue(service.getNeighbours().contains(neighbourToCreate));
     }
@@ -56,14 +56,14 @@ public class NeighbourServiceTest {
     public void addFavoriteWithSuccess(){
         Neighbour favoriteToAdd = service.getNeighbours().get(0);
         service.addFavorite(favoriteToAdd);
-        boolean favorite = favoriteToAdd.getFavorite();
-        assertTrue(true);
+        boolean favorite = favoriteToAdd.getFavorite(); // Pas bon non plus, récupères ton neighbour depuis ton service
+        assertTrue(true); // typo
    }
 
     @Test
     public void getFavoriteWithSuccess(){
         List<Neighbour> neighbour = service.getNeighbours();
-        List<Neighbour> expectedFavoriteNeighbour = service.getFavoriteNeighbour();
+        List<Neighbour> expectedFavoriteNeighbour = service.getFavoriteNeighbour(); // Vérifie juste que ta liste est vide par défaut :)
         assertFalse(expectedFavoriteNeighbour.equals(neighbour));
     }
 
@@ -77,7 +77,7 @@ public class NeighbourServiceTest {
 
     @Test
     public void getNeighboursByIdWithSuccess() {
-        assertEquals(1, service.getNeighboursById(1).getId());
+        assertEquals(1, service.getNeighboursById(1).getId()); // A découper en 3 tests (oui c'est nul mais c'est un test UNITAIRE ! :p
         assertNotEquals(1, service.getNeighboursById(3).getId());
         assertNull(service.getNeighboursById(-1));
     }
