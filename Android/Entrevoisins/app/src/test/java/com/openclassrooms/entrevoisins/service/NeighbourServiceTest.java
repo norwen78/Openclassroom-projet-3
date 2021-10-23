@@ -47,7 +47,7 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void CreateNeighbourWithSuccess(){
+    public void createNeighbourWithSuccess(){
         Neighbour neighbourToCreate = service.getNeighbours().get(0);
         service.createNeighbour(neighbourToCreate);
         assertTrue(service.getNeighbours().contains(neighbourToCreate));
