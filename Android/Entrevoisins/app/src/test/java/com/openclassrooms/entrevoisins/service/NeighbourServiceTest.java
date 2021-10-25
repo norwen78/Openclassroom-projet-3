@@ -1,5 +1,8 @@
 package com.openclassrooms.entrevoisins.service;
 
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
@@ -16,7 +19,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,17 +56,17 @@ public class NeighbourServiceTest {
     }
    @Test
     public void addFavoriteWithSuccess(){
+        List<Neighbour> myFavoriteList = service.getFavoriteNeighbour();
         Neighbour favoriteToAdd = service.getNeighbours().get(0);
+        assertThat(myFavoriteList, is(empty()));
         service.addFavorite(favoriteToAdd);
-        boolean favorite = favoriteToAdd.getFavorite();
-        assertTrue(true);
+        assertThat(myFavoriteList, not(empty()));
    }
 
     @Test
     public void getFavoriteWithSuccess(){
-        List<Neighbour> neighbour = service.getNeighbours();
-        List<Neighbour> expectedFavoriteNeighbour = service.getFavoriteNeighbour();
-        assertFalse(expectedFavoriteNeighbour.equals(neighbour));
+        List<Neighbour> myFavoriteList = service.getFavoriteNeighbour();
+        assertThat(myFavoriteList, is(empty()));
     }
 
     @Test
@@ -81,6 +83,7 @@ public class NeighbourServiceTest {
         assertNotEquals(1, service.getNeighboursById(3).getId());
         assertNull(service.getNeighboursById(-1));
     }
+
 
 
 }
