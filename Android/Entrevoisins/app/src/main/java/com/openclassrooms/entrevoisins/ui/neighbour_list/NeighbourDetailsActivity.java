@@ -72,11 +72,9 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
                 if (!neighbour.getFavorite()) {
                     favorite.setImageResource(R.drawable.ic_baseline_star_full_24);
                     mApiService.addFavorite(neighbour);
-                    neighbour.setFavorite(true);
                 } else {
                     favorite.setImageResource(R.drawable.ic_baseline_star_border_24);
                     mApiService.removeFavorite(neighbour);
-                    neighbour.setFavorite(false);
                 }
             }
         }));

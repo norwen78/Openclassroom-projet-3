@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.service;
 
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
@@ -49,31 +50,45 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void createNeighbourWithSuccess(){
+    public void createNeighbourWithSuccess() {
         Neighbour neighbourToCreate = service.getNeighbours().get(0);
         service.createNeighbour(neighbourToCreate);
         assertTrue(service.getNeighbours().contains(neighbourToCreate));
     }
-   @Test
-    public void addFavoriteWithSuccess(){
-        List<Neighbour> myFavoriteList = service.getFavoriteNeighbour();
-        Neighbour favoriteToAdd = service.getNeighbours().get(0);
-        assertThat(myFavoriteList, is(empty()));
-        service.addFavorite(favoriteToAdd);
-        assertThat(myFavoriteList, not(empty()));
-   }
 
     @Test
-    public void getFavoriteWithSuccess(){
+    public void addFavoriteWithSuccess() {
+        List<Neighbour> favoriteList = service.getFavoriteNeighbour();
+        Neighbour favoriteToAdd = service.getNeighbours().get(0);
+        assertThat(favoriteList, hasSize(0));
+        service.addFavorite(favoriteToAdd);
+        favoriteList = service.getFavoriteNeighbour();
+        assertThat(favoriteList, hasSize(1));
+    }
+
+    @Test
+    public void getFavoriteWithSuccess() {
         List<Neighbour> myFavoriteList = service.getFavoriteNeighbour();
-        assertThat(myFavoriteList, is(empty()));
+        Neighbour favoriteToAdd = service.getNeighbours().get(0);
+        assertThat(myFavoriteList, hasSize(0));
+        service.addFavorite(favoriteToAdd);
+        myFavoriteList = service.getFavoriteNeighbour();
+        assertThat(myFavoriteList, hasSize(1));
+        service.removeFavorite(favoriteToAdd);
+        myFavoriteList = service.getFavoriteNeighbour();
+        assertThat(myFavoriteList, hasSize(0));
     }
 
     @Test
     public void removeFavoriteWithSuccess() {
-        Neighbour favoriteToRemove = service.getNeighbours().get(0);
-        service.removeFavorite(favoriteToRemove);
-        assertFalse(service.getFavoriteNeighbour().contains(favoriteToRemove));
+        List<Neighbour> myFavoriteList = service.getFavoriteNeighbour();
+        Neighbour favoriteToAdd = service.getNeighbours().get(0);
+        service.addFavorite(favoriteToAdd);
+        myFavoriteList = service.getFavoriteNeighbour();
+        assertThat(myFavoriteList, not(empty()));
+        service.removeFavorite(favoriteToAdd);
+        myFavoriteList = service.getFavoriteNeighbour();
+        assertThat(myFavoriteList, is(empty()));
     }
 
 
@@ -83,7 +98,6 @@ public class NeighbourServiceTest {
         assertNotEquals(1, service.getNeighboursById(3).getId());
         assertNull(service.getNeighboursById(-1));
     }
-
 
 
 }
